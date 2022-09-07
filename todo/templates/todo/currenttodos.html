@@ -2,6 +2,13 @@
 
 {% block content %}
 
-INFO
+<ul>
+    {% for todo in todos %}
+    <li>
+        {% if todo.important %}<b>{% endif %}{{ todo.title }}{% if todo.important %}</b>{% endif %}
+        {% if todo.memo %} -{{ todo.memo }}{% endif %}
+    </li>
+    {% endfor %}
+</ul>
 
 {% endblock %}
