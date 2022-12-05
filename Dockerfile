@@ -4,6 +4,6 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /opt/app
 
-ADD opt/app
+ADD . .
 
 RUN pip install -r requirements.txt
