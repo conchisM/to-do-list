@@ -1,9 +1,14 @@
 FROM python:3.10.8-buster
 
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /opt/app
+WORKDIR /usr/src/app
 
-ADD . .
+COPY ./requirements.txt /usr/src/requirements.txt
+RUN pip install -r /usr/src/requirements.txt
 
-RUN pip install -r requirements.txt
+COPY . /usr/src/app
+
+EXPOSE 8000
+CMD ["python", "manage.py", "runserver", "0.0.0.0.8000"]
